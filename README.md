@@ -65,13 +65,13 @@ Terraform state is stored remotely in S3 with DynamoDB locking to prevent concur
 
 **Terraform State on S3:**
 
-Terraform State on S3
+![Terraform State on S3](assets/tfStateOnS3.png)
 
 The S3 bucket stores the `terraform.tfstate` file with **versioning enabled** — every `terraform apply` creates a new version, allowing you to roll back if needed.
 
 **DynamoDB State Lock:**
 
-DynamoDB State Lock
+![DynamoDB State Lock](assets/DynamoDBLockState.png)
 
 DynamoDB table `webapp-tf-locks` holds the active lock record (`LockID`, `Status:Locked`, `Owner`), preventing other users or processes from running `terraform apply` while a deployment is in progress.
 
@@ -98,6 +98,8 @@ aws dynamodb create-table \
 
 Terraform Init
 
+![Terraform Init](assets/init.png)
+
 ```bash
 terraform init
 ```
@@ -114,6 +116,8 @@ Terraform has been successfully initialized!
 ### Step 3: Review the Plan
 
 Terraform Plan
+
+![Terraform Plan](assets/plan.png)
 
 ```bash
 terraform plan
@@ -134,6 +138,8 @@ Changes to Outputs:
 ### Step 4: Apply the Configuration
 
 Terraform Apply
+
+![Terraform Apply](assets/apply.png)
 
 ```bash
 terraform apply -auto-approve
@@ -220,13 +226,13 @@ db_password   = "YourSecurePassword123!"
 
 ### EC2 Instances
 
-EC2 Console
+![EC2 Instances](assets/ec2Instance.png)
 
 The web server EC2 instance is running in the public subnet with a public IP address assigned.
 
 ### S3 Buckets
 
-S3 Console
+![S3 Buckets](assets/s3Buckets.png)
 
 The static assets S3 bucket is created with:
 
@@ -237,13 +243,13 @@ The static assets S3 bucket is created with:
 
 ### Database Connection
 
-RDS Connection
+![Database Connection](assets/databaseConnection.png)
 
 RDS MySQL is deployed in private subnets across 2 Availability Zones with Multi-AZ enabled. The connection is established from the web server in the public subnet.
 
 ### MySQL Database
 
-MySQL Database
+![MySQL Database](assets/mySQLDatabase.png)
 
 The RDS MySQL instance shows:
 
@@ -270,7 +276,7 @@ http://<web_server_public_ip>/
 
 ### Main Page — Web Server on EC2
 
-Web Server on EC2
+![Web Server on EC2](assets/webserveronec2.png)
 
 The main page displays:
 
@@ -280,7 +286,7 @@ The main page displays:
 
 ### Database Connection Test
 
-Database Connection
+![Database Connection Test](assets/databaseConnection.png)
 
 The database connection test verifies connectivity from the EC2 web server to the RDS MySQL instance in the private subnet.
 
@@ -386,6 +392,8 @@ terraform apply -auto-approve
 Destroy all resources to avoid ongoing charges:
 
 Terraform Destroy
+
+![Terraform Destroy](assets/destroy.png)
 
 ```bash
 terraform destroy -auto-approve
