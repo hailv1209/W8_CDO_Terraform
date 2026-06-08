@@ -1,0 +1,34 @@
+# =============================================
+# terraform.tfvars — DO NOT COMMIT THIS FILE
+# Copy this to terraform.tfvars and fill in your values
+# =============================================
+
+# AWS region
+aws_region = "us-east-1"
+
+# Project name
+project = "webapp"
+
+# Environment
+environment = "dev"
+
+# EC2 instance type
+instance_type = "t3.micro"
+
+# AMI ID — MUST match your region and OS version
+# Find the latest AL2023 AMI:
+#   aws ssm get-parameter --name /aws/service/amazonlinux/2023/hvm-arm64/gpu-ami-minimal/20250604.0/image-id --region us-east-1
+#   OR browse: https://console.aws.amazon.com/systems-manager/parameters/aws/service/amazonlinux/2023/hvm-arm64/gpu-ami-minimal/20250604.0/image-id/description?region=us-east-1
+ami_id = "ami-00e801948462f718a"
+
+# RDS instance class
+db_instance_class = "db.t3.micro"
+
+# Database credentials — CHANGE THESE
+db_username = "admin"
+db_password = "YourSecurePassword123!"
+
+# VPC settings (optional — defaults work out of the box)
+# vpc_cidr             = "10.0.0.0/16"
+# public_subnet_cidrs  = ["10.0.1.0/24", "10.0.2.0/24"]
+# private_subnet_cidrs = ["10.0.10.0/24", "10.0.20.0/24"]

@@ -1,0 +1,36 @@
+# =============================================
+# Terraform — NEVER commit these
+# =============================================
+
+# Terraform state (contains real AWS resource IDs, IPs, ARNs, endpoints)
+.terraform/
+
+# Provider version lock file — commit this only if you want reproducible builds
+# Uncomment the line below if your team shares the same provider versions
+# .terraform.lock.hcl
+
+# Variable overrides — NEVER commit real credentials
+# Copy this file to terraform.tfvars and fill in your values:
+#   cp terraform.tfvars.example terraform.tfvars
+terraform.tfvars
+terraform.tfvars.json
+
+# =============================================
+# Editor / OS — also never commit
+# =============================================
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
